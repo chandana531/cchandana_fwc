@@ -1,0 +1,105 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{\textbf{\textsc{Implementation of T Flip-Flop using 7474 IC}}}
+\author{\textit{\textbf{Cheenepalli Chandana}}}
+\usepackage{graphicx}
+\begin{document}
+
+\maketitle
+\section{Abstract}
+This manual shows Implementation of T flip-flop using 7474 IC
+\section{Components}
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[ht]
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Component} & \textbf{Value} & \textbf{Quantity} \\ \hline
+Bread board & - & 1 \\ \hline
+Arduino & Uno & 1 \\ \hline
+LED & - & 2 \\ \hline
+IC & 7474 & 1 \\ \hline
+Jumper Wires & - & 20 \\ \hline
+\end{tabular}%
+}
+\caption{}
+\label{Tabel-1}
+\end{table}
+\section{Procedure}
+1.Connect 5V  of the Arduino to the Top Green of the Bread Board  and GND to the Bottom Green.
+\\
+2.Connect D13 pin in the Arduino to the 3 (CLK) pin of the IC 7474.
+\\
+3.Connect 1,4,14  pins of the IC 7474 to the VCC and 7 pin to the GND.
+\\
+4.Connect  Arduino D2 pin to the  2(1D) of the IC 7474.
+\\
+5.Connect Arduino D5 pin to the 5 (1Q) of the IC 7474 .
+\\
+6.Connect one LED + to the 5 pin of IC 7474 and GND the other terminal.
+\\
+7.Connect another LED +  to the 6 (!Q) pin of the IC 7474 and GND the other terminal.\\
+8.Change the D12 pin in the Arduino  from VCC to GND and observe the outputs.
+\\
+
+\section{Code}
+Execute the following code using the below provided link
+\\
+\begin{table}[ht]
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|l|}
+\hline
+https://github.com/chandana531/chandanafwc/ide.ino
+\end{tabular}%
+}
+\end{table}
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\section{Conversion table}
+\begin{table}[ht]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|lll|ll|}
+\hline
+\textbf{Input} & \multicolumn{3}{l|}{\textbf{Intermediate Inputs}} & \multicolumn{2}{l|}{\textbf{Outputs}} \\ \hline
+T & \multicolumn{1}{l|}{Qn} & \multicolumn{1}{l|}{!Qn} & T=D xor Qn & \multicolumn{1}{l|}{Qn} & !Qn \\ \hline
+0 & \multicolumn{1}{l|}{0} & \multicolumn{1}{l|}{1} & 0 & \multicolumn{1}{l|}{0} & 1 \\ \hline
+0 & \multicolumn{1}{l|}{1} & \multicolumn{1}{l|}{0} & 1 & \multicolumn{1}{l|}{1} & 0 \\ \hline
+1 & \multicolumn{1}{l|}{0} & \multicolumn{1}{l|}{1} & 1 & \multicolumn{1}{l|}{1} & 0 \\ \hline
+1 & \multicolumn{1}{l|}{1} & \multicolumn{1}{l|}{0} & 0 & \multicolumn{1}{l|}{0} & 1 \\ \hline
+\end{tabular}%
+}
+\caption{}
+\label{conversion table}
+\end{table}
+
+
+\begin{figure}
+	\centering																	   		
+	\includegraphics[width=3in]{IC 7474 Pinout Diagram.png}
+	\caption{7474}
+	\label{fig:circuit}	
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=3in]{kmap.png}
+	\caption{kmap}
+	\label{fig:circuit}
+\end{figure}
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=3in]{circuit_diagram_of_t_flip_flop.png}
+\caption{Circuit Diagram}
+
+\end{figure}
+
+
+
+\end{document}
+
+

@@ -1,0 +1,96 @@
+\documentclass[journal,10pt,twocolumn]{article}
+\usepackage{graphicx}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[cmex10]{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{mathtools}
+\title{\textbf{Optimization Assignment - 2}}
+\author{Cheenepalli Chandana}
+\date{September 2022}
+
+
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\let\vec\mathbf
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+
+\begin{document}
+
+\maketitle
+\paragraph{\textit{Problem Statement} -let x and y be two real variables such that $x \geq 0$ and $xy=1$ Find the minimum value of $x+y$} 
+
+\section*{\large Solution}
+\subsection*{\normalsize Theoretical approximation}
+Let $x$ and $y$ variables of the given function \\
+\section*{\large Given}
+\begin{equation}
+xy=1
+\end{equation}
+can be written in quadratic form as
+\begin{align}
+	\vec{x}^{\top}\vec{V}\vec{x}+2\vec{u}^{\top}\vec{x}+f=0
+\end{align}
+The given constraints  can be expressed as conics with \\parameters
+\begin{align}
+	\vec{V} &= \frac{1}{2}\myvec{0&1\\1&0}, \vec{u} = \myvec{0 \\0}, f = -1\\
+	\end{align}
+And
+\begin{align}
+x\geq 0
+\end{align}
+The minimum value of the  function is given by,\\ \vspace{1mm}
+Generally,
+\begin{align*}
+\brak{x^2-1}\leq 0 \hspace{5mm} \forall \hspace{1mm} x \in \mathbf{R} \\
+\implies -\brak{x-1}^2 \le 1 \\
+\implies x^2 \le 1 \\
+\end{align*}
+By solving this ,we get
+\begin{equation}
+x = \pm 1
+\end{equation}
+\begin{align}
+	\boxed{x = 1}\\
+	since, its given  x\geq 0\\
+\end{align}
+
+\subsection*{\normalsize Gradient descent}
+Let $x$ be the variable of the given function \\ \vspace{1mm}
+The minimum value of given function is expressed as
+\begin{align}
+	\label{eq:vol_varx}
+	f = \min_{x,y}x+y\\
+	f = \min_{\vec{x}}\myvec{1&1}\vec{x}
+\end{align}
+\begin{align}
+ \vec{x}^{\top}\frac{1}{2} \myvec{0&1\\1&0}\vec{x}+2\myvec{0&0}\vec{x}=1 \\
+x\geq0
+\end{align}
+Using gradient ascent method we can find its minima\\ \vspace{2mm}
+
+    \begin{align}
+        x_{n+1} &= x_n + \alpha \nabla f(x_n) \\
+        \implies x_{n+1} &= x_n + \alpha ({\frac{1-x^2}{x^2}})
+    \end{align}
+    
+Taking $x_0=1,\alpha=0.001$ and precision = 0.00000001, values obtained using python are:
+    
+    \begin{align}
+        \boxed{\text{Minima} = 2}\\
+        \boxed{\text{Minima Point} = 1}
+    \end{align}
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=1\columnwidth]{opt.pdf}
+	\caption{Graph of $f(x)$ vs $x$}
+	\label{fig:graph_fx}
+\end{figure}
+
+\end{document}
